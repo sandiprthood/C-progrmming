@@ -1,0 +1,8 @@
+#include <stdio.h>
+#define MAX 10 int main(void) {
+int s[MAX], top = -1, i; s[++top] = 5;
+s[++top] = 10;
+s[++top] = 15;
+printf("Popped action: %d\n", s[top--]); printf("Remaining actions (top to bottom): "); for (i = top; i >= 0; i--) printf("%d ", s[i]); printf("\n");
+return 0;
+}

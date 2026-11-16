@@ -1,0 +1,10 @@
+#include <stdio.h>
+int main(void) {
+int a[] = {10, 20, 30, 40, 50};
+int i, found = -1;
+for (i = 0; i < 5; i++) {
+if (a[i] == 40) { found = i; break; }
+}
+if (found >= 0) printf("40 found at position %d\n", found + 1);
+else printf("40 not found\n"); return 0;
+}

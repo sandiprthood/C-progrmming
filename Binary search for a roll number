@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main(void) {
+int roll[] = {101, 105, 110, 115, 120, 125, 130};
+int low = 0, high = 6, mid, key = 115, position = -1;
+while (low <= high) {
+mid = low + (high - low) / 2;
+if (roll[mid] == key) { position = mid; break; } if (roll[mid] < key) low = mid + 1;
+else high = mid - 1;
+}
+if (position != -1) printf("Roll number %d found at position %d\n", key, position + 1);
+else printf("Roll number %d not found\n", key);
+return 0;
+}

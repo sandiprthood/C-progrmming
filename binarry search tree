@@ -1,0 +1,30 @@
+#include <stdio.h> #include <stdlib.h> typedef struct Node {
+int data;
+struct Node *left, *right;
+} Node;
+
+Node *insert(Node *root, int x) { if (root == NULL) {
+Node *p = (Node *)malloc(sizeof(Node));
+if (p == NULL) exit(1);
+p->data = x; p->left = p->right = NULL; return p;
+}
+if (x < root->data) root->left = insert(root->left, x);
+else if (x > root->data) root->right = insert(root->right, x);
+return root;
+}
+void inorder(Node *r) {
+if (r) { inorder(r->left); printf("%d ", r->data); inorder(r->right); }
+}
+void preorder(Node *r) {
+if (r) { printf("%d ", r->data); preorder(r->left); preorder(r->right); }
+}
+void freeTree(Node *r) {
+if (r) { freeTree(r->left); freeTree(r->right); free(r); }
+}
+int main(void) {
+int a[] = {50, 30, 70, 20, 40, 60, 80}, i;
+Node *root = NULL;
+for (i = 0; i < 7; i++) root = insert(root, a[i]); printf("Inorder: "); inorder(root); printf("\nPreorder: "); preorder(root); printf("\n");
+freeTree(root);
+return 0;
+}

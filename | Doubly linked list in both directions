@@ -1,0 +1,20 @@
+#include <stdio.h> #include <stdlib.h> typedef struct Node {
+int data;
+struct Node *prev, *next;
+} Node;
+int main(void) {
+int values[] = {5, 10, 15}, i;
+Node *head = NULL, *tail = NULL, *p, *t;
+for (i = 0; i < 3; i++) {
+p = (Node *)malloc(sizeof(Node));
+if (!p) return 1;
+p->data = values[i]; p->prev = tail; p->next = NULL; if (tail) tail->next = p; else head = p;
+tail = p;
+}
+printf("Forward: ");
+for (t = head; t; t = t->next) printf("%d ", t->data);
+printf("\nBackward: ");
+for (t = tail; t; t = t->prev) printf("%d ", t->data);
+printf("\n");
+while (head) { t = head; head = head->next; free(t); } return 0;
+}

@@ -1,0 +1,12 @@
+#include <stdio.h>
+int main(void) {
+int a[6] = {10, 20, 30, 40, 50};
+int n = 5, pos = 3, value = 55, i;
+if (pos < 1 || pos > n + 1) { printf("Invalid position\n"); return 0;
+}
+for (i = n; i >= pos; i--) a[i] = a[i - 1]; a[pos - 1] = value;
+n++;
+printf("Updated array: ");
+for (i = 0; i < n; i++) printf("%d ", a[i]);
+printf("\n"); return 0;
+}

@@ -1,0 +1,17 @@
+#include <stdio.h>
+int main(void) {
+int a[6] = {9, 4, 7, 2, 11};
+int n = 5, value, pos, i;
+printf("Original copies: ");
+for (i = 0; i < n; i++) printf("%d ", a[i]);
+printf("\nEnter new copy count: ");
+if (scanf("%d", &value) != 1) return 1;
+printf("Enter position (1 to 6): "); if (scanf("%d", &pos) != 1) return 1; if (pos < 1 || pos > n + 1) {
+printf("Invalid position\n"); return 0;
+}
+for (i = n; i >= pos; i--) a[i] = a[i - 1]; a[pos - 1] = value;
+n++;
+printf("Updated copies: ");
+for (i = 0; i < n; i++) printf("%d ", a[i]);
+printf("\n"); return 0;
+}

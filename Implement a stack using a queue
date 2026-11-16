@@ -1,0 +1,24 @@
+#include <stdio.h>
+#define MAX 20
+int q[MAX], front = 0, rear = -1, count = 0;
+void push(int x) { int i;
+if (count == MAX) { printf("Stack overflow\n"); return; } rear = (rear + 1) % MAX;
+q[rear] = x; count++;
+for (i = 0; i < count - 1; i++) { int old = q[front];
+front = (front + 1) % MAX; rear = (rear + 1) % MAX; q[rear] = old;
+}
+}
+void pop(void) {
+if (count == 0) { printf("Stack underflow\n"); return; } printf("Popped: %d\n", q[front]);
+front = (front + 1) % MAX; count--;
+}
+void display(void) { int i;
+printf("Stack (top to bottom): ");
+for (i = 0; i < count; i++) printf("%d ", q[(front + i) % MAX]);
+printf("\n");
+}
+int main(void) {
+push(5); push(10); push(15); pop();
+display();
+return 0;
+}

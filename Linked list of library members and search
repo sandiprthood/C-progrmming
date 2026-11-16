@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct Node { int id; struct Node *next; } Node;
+int main(void) {
+int ids[] = {31, 32, 33, 34}, i, found = 0; Node *head = NULL, *tail = NULL, *p, *t; for (i = 0; i < 4; i++) {
+p = (Node *)malloc(sizeof(Node));
+if (!p) return 1;
+p->id = ids[i]; p->next = NULL;
+if (!head) head = p; else tail->next = p; tail = p;
+}
+printf("Member IDs: ");
+for (t = head; t; t = t->next) { printf("%d ", t->id);
+if (t->id == 32) found = 1;
+}
+printf("\nMember ID 32 %s\n", found ? "found" : "not found"); while (head) { t = head; head = head->next; free(t); }
+return 0;
+}

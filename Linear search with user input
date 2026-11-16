@@ -1,0 +1,11 @@
+#include <stdio.h>
+int main(void) {
+int a[] = {8, 15, 3, 22, 11, 19};
+int key, i, found = -1;
+printf("Enter element to search: "); if (scanf("%d", &key) != 1) return 1; for (i = 0; i < 6; i++) {
+if (a[i] == key) { found = i; break; }
+}
+if (found != -1) printf("%d found at position %d\n", key, found + 1);
+else printf("%d not found\n", key);
+return 0;
+}

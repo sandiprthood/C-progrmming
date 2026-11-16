@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main(void) {
+int a[] = {11, 33, 55, 77, 99};
+int low = 0, high = 4, key = 77, mid, found = -1;
+while (low <= high) {
+mid = low + (high - low) / 2;
+if (a[mid] == key) { found = mid; break; } if (a[mid] < key) low = mid + 1;
+else high = mid - 1;
+}
+if (found != -1) printf("%d found at position %d\n", key, found + 1);
+else printf("%d not found\n", key);
+return 0;
+}

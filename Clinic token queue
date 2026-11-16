@@ -1,0 +1,8 @@
+#include <stdio.h>
+#define MAX 5 int main(void) {
+int q[MAX], front = 0, rear = -1, i;
+int tokens[] = {51, 52, 53, 54};
+for (i = 0; i < 4; i++) q[++rear] = tokens[i]; printf("Called patient token: %d\n", q[front++]); printf("Waiting tokens: ");
+for (i = front; i <= rear; i++) printf("%d ", q[i]);
+printf("\n"); return 0;
+}

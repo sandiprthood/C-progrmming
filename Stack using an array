@@ -1,0 +1,10 @@
+#include <stdio.h>
+#define MAX 5 int main(void) {
+int stack[MAX], top = -1, i; stack[++top] = 10;
+stack[++top] = 20;
+stack[++top] = 30;
+printf("Popped: %d\n", stack[top--]);
+printf("Stack (top to bottom): ");
+for (i = top; i >= 0; i--) printf("%d ", stack[i]);
+printf("\n"); return 0;
+}
